@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Absensi Siswa</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <h1>Sistem Rekap Absensi Siswa</h1>
+
+        <!-- ===== FORM INPUT ===== -->
+        <div class="card">
+            <h2>Input Data Absensi</h2>
+
+            <form id="absensiForm">
+                <div class="form-group">
+                    <label for="nama">Nama Siswa</label>
+                    <input type="text" id="nama" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="status">Status Kehadiran</label>
+                    <select id="status" required>
+                        <option value="">-- Pilih Status --</option>
+                        <option value="Hadir">Hadir</option>
+                        <option value="Izin">Izin</option>
+                        <option value="Sakit">Sakit</option>
+                        <option value="Alpha">Alpha</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn-primary">Tambah Data</button>
+            </form>
+        </div>
+
+        <!-- ===== TABEL REKAP ===== -->
+        <div class="card">
+            <h2>Rekap Absensi</h2>
+
+            <table id="tabelAbsensi">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Nama</th>
+                        <th>Status</th>
+                        <th>Tanggal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Data akan dirender oleh JavaScript -->
+                </tbody>
+            </table>
+
+            <div class="export-container">
+                <button id="exportBtn" class="btn-success">Export ke Excel</button>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- ===== MODAL INPUT NAMA FILE ===== -->
+    <div id="modalExport" class="modal">
+        <div class="modal-content">
+            <h3>Nama File Excel</h3>
+
+            <input type="text" id="namaFile" placeholder="Contoh: Rekap_Absensi_Kelas_X">
+
+            <div class="modal-actions">
+                <button id="batalExport" class="btn-danger">Batal</button>
+                <button id="konfirmasiExport" class="btn-success">Export</button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ===== LIBRARY EXCEL ===== -->
+    <script src="libs/xlsx.full.min.js"></script>
+
+    <!-- ===== JS FILES ===== -->
+    <script src="assets/js/data.js"></script>
+    <script src="assets/js/absensi.js"></script>
+    <script src="assets/js/table.js"></script>
+    <script src="assets/js/exportExcel.js"></script>
+
+</body>
+</html>
